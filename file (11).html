@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clínica Benvenutti | Dentista em Fazenda Rio Grande</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1a2e;--navy2:#13294a;--cream:#f3e6d3;--ice:#e9eef4;--txt:#eef2f7;--mut:#a9b6c8;--glass:rgba(255,255,255,.08);--line:rgba(255,255,255,.18);--verde:#25d366;--verde2:#1ebe5b;--gold:#ffd9a0;--max:1200px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,sans-serif;background:radial-gradient(circle at 20% 0%,#1c3a63,var(--navy) 60%);color:var(--txt);overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:auto;padding:0 20px}
+.panel{border-radius:24px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(18px);overflow:hidden;position:relative;margin:12px 0}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:20px}
+.eyebrow b{color:var(--txt);font-weight:500}.eyebrow i{width:60px;height:1px;background:var(--line)}
+.h{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(2.2rem,4.6vw,4.2rem);line-height:1.05}
+.h em{display:block;font-style:italic}
+.pill{display:inline-flex;align-items:center;gap:18px;background:var(--verde);color:#fff;padding:8px 8px 8px 26px;border-radius:60px;font-size:.72rem;letter-spacing:2px;font-weight:600;text-transform:uppercase;transition:.35s;box-shadow:0 10px 28px rgba(37,211,102,.35)}
+.pill span{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--verde2);display:grid;place-items:center;transition:.35s}
+.pill:hover{background:var(--verde2);transform:translateY(-3px);box-shadow:0 16px 38px rgba(37,211,102,.5)}
+.pill:hover span{transform:rotate(-45deg)}
+.link{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:4px}
+.rv{opacity:0;transform:translateY(50px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:calc(100% - 40px);max-width:calc(var(--max) - 40px);z-index:90;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 24px;border-radius:60px;background:rgba(11,26,46,.5);backdrop-filter:blur(16px);border:1px solid var(--line)}
+.logo{font-family:'Playfair Display',serif;font-size:1.4rem;letter-spacing:4px;line-height:1}
+.logo small{display:block;font-family:Manrope;font-size:.55rem;letter-spacing:4px;color:var(--mut)}
+nav ul{display:flex;gap:30px;list-style:none;font-size:.85rem;color:var(--mut)}
+nav ul a:hover{color:#fff}
+
+/* HERO – FOTO EM TELA CHEIA, FOCO NO SORRISO */
+.hero{min-height:100vh;margin-top:0;border-radius:0 0 24px 24px;border-top:0;background:var(--navy)}
+.hero .bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero .bg img{object-position:72% 40%;transform-origin:70% 50%;animation:zoom 14s ease-in-out infinite alternate;filter:saturate(1.15) contrast(1.05) brightness(1.05)}
+.hero .bg:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(200deg,rgba(255,170,70,.45),transparent 55%);mix-blend-mode:soft-light}
+.hero .bg:after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(11,26,46,.92) 0%,rgba(11,26,46,.7) 32%,rgba(11,26,46,.1) 58%,transparent),linear-gradient(0deg,rgba(11,26,46,.7),transparent 25%)}
+.hero .sun{position:absolute;z-index:1;right:-15%;top:-25%;width:75%;height:95%;background:radial-gradient(circle,rgba(255,190,110,.5),transparent 60%);mix-blend-mode:screen;pointer-events:none;animation:sun 7s ease-in-out infinite alternate}
+@keyframes zoom{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+@keyframes sun{0%{opacity:.6;transform:scale(1)}100%{opacity:1;transform:scale(1.12)}}
+.hero .in{position:relative;z-index:2;min-height:100vh;max-width:var(--max);margin:auto;padding:110px 40px 100px;display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.hero .c{display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(2.4rem,4.6vw,4.3rem);line-height:1.05;letter-spacing:-1.5px;margin-bottom:22px;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.hero h1 .d{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;letter-spacing:0;background:linear-gradient(90deg,var(--gold),#f6a85b,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#d3dbe6;font-size:1.05rem;line-height:1.7;margin-bottom:8px}
+.hero p strong{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--gold)}
+.hero small{font-size:.72rem;letter-spacing:2px;color:var(--cream);opacity:.85}
+.hero .acts{display:flex;align-items:center;gap:26px;margin-top:30px;flex-wrap:wrap}
+.media{position:relative;height:min(70vh,600px)}
+.bubble{position:absolute;z-index:3;left:-20px;top:4%;width:160px;height:160px;border-radius:50%;background:rgba(11,26,46,.45);border:1px solid rgba(255,210,150,.35);backdrop-filter:blur(14px);display:flex;align-items:center;padding:24px;font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;line-height:1.25;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-18px)}}
+.stat-card{position:absolute;z-index:3;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:12px 22px 12px 12px;border-radius:20px;background:rgba(11,26,46,.55);backdrop-filter:blur(16px);border:1px solid rgba(255,210,150,.3)}
+.stat-card b{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:400;color:var(--gold);line-height:1;display:block}
+.stat-card span{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--mut)}
+.stat-card .ic{width:50px;height:50px;border-radius:14px;overflow:hidden}
+@media(prefers-reduced-motion:reduce){.hero .bg img,.hero .sun,.lucia .ph:after{animation:none}}
+
+/* BOTÃO SCROLL */
+.scroll{position:absolute;z-index:4;left:50%;bottom:24px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--mut);transition:.3s}
+.scroll .mouse{width:28px;height:46px;border:2px solid var(--line);border-radius:20px;position:relative;transition:.3s}
+.scroll .mouse:before{content:'';position:absolute;left:50%;top:8px;width:4px;height:9px;margin-left:-2px;border-radius:4px;background:var(--verde);animation:wheel 1.8s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(16px)}}
+.scroll:hover{color:#fff}.scroll:hover .mouse{border-color:var(--verde)}
+
+/* LÚCIA – GOLDEN HOUR */
+.lucia{display:grid;grid-template-columns:1.1fr 1fr;min-height:480px;scroll-margin-top:90px}
+.lucia .ph{overflow:hidden;position:relative}
+.lucia .ph img{object-position:center 35%;transition:transform 1.4s;filter:saturate(1.2) contrast(1.05) sepia(.15) brightness(1.05)}
+.lucia:hover .ph img{transform:scale(1.06)}
+.lucia .ph:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(225deg,rgba(255,165,60,.55),rgba(255,120,60,.15) 45%,transparent 70%);mix-blend-mode:soft-light;pointer-events:none}
+.lucia .ph:after{content:'';position:absolute;z-index:2;right:-25%;top:-30%;width:80%;height:80%;background:radial-gradient(circle,rgba(255,200,120,.55),transparent 60%);mix-blend-mode:screen;pointer-events:none;animation:sun 7s ease-in-out infinite alternate}
+.lucia .q{padding:50px 44px;display:flex;flex-direction:column;justify-content:center}
+.lucia h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(1.7rem,2.7vw,2.4rem);line-height:1.2;margin-bottom:22px}
+.lucia p{color:var(--mut);line-height:1.8;margin-bottom:20px}
+.lucia cite{font-style:normal;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--cream)}
+
+/* TRATAMENTOS – SLIDER */
+.trat{background:linear-gradient(120deg,var(--ice),#cfd9e6);color:var(--navy);display:grid;grid-template-columns:300px 1fr;gap:36px;padding:50px 40px}
+.trat .eyebrow{color:#5a6b82}.trat .eyebrow b{color:var(--navy)}.trat .eyebrow i{background:#9fb0c6}
+.trat .h em{color:var(--navy2)}
+.trat .intro{display:flex;flex-direction:column;justify-content:center}
+.trat .intro p{color:#4a5b72;line-height:1.7;margin:20px 0 30px}
+.slider{min-width:0;--per:3;--gap:16px}
+.s-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.dots{display:flex;gap:8px}
+.dots button{width:9px;height:9px;border-radius:20px;border:0;background:#9fb0c6;cursor:pointer;transition:.4s}
+.dots button.on{width:30px;background:var(--verde)}
+.arrows{display:flex;gap:10px}
+.arrows button{width:46px;height:46px;border-radius:50%;border:1px solid #9fb0c6;background:rgba(255,255,255,.6);cursor:pointer;color:var(--navy);font-size:1.05rem;transition:.3s}
+.arrows button:hover:not(:disabled){background:var(--verde);border-color:var(--verde);color:#fff}
+.arrows button:disabled{opacity:.35;cursor:default}
+.viewport{overflow:hidden;padding:12px 0 20px;margin:-12px 0 -20px}
+.track{display:flex;gap:var(--gap);transition:transform .7s cubic-bezier(.2,.7,.2,1);touch-action:pan-y}
+.card{flex:0 0 calc((100% - (var(--per) - 1)*var(--gap))/var(--per));background:rgba(255,255,255,.6);backdrop-filter:blur(10px);border:1px solid #fff;border-radius:22px;padding:10px;transition:.45s;user-select:none}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(11,26,46,.16)}
+.card .im{height:180px;border-radius:16px;overflow:hidden;position:relative}
+.card .im img{transition:1s;pointer-events:none}.card:hover .im img{transform:scale(1.1)}
+.card .im em{position:absolute;top:10px;left:10px;font-style:normal;font-size:.62rem;letter-spacing:2px;padding:5px 10px;border-radius:30px;background:rgba(255,255,255,.85);color:var(--navy);font-weight:600}
+.card .b{padding:16px 10px 10px}
+.card h3{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.card p{font-size:.86rem;color:#4a5b72;line-height:1.6;margin-bottom:16px;min-height:96px}
+.card a{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:2px;font-weight:600;text-transform:uppercase;color:var(--verde2)}
+.card a span{width:36px;height:36px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;transition:.3s}
+.card a:hover span{background:var(--verde2);transform:rotate(-45deg)}
+
+/* DEPOIMENTOS – ANTES/DEPOIS */
+.deps{padding:50px 40px}
+.deps .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dep{border-radius:22px;background:rgba(255,255,255,.05);border:1px solid var(--line);overflow:hidden;transition:.4s}
+.dep:hover{transform:translateY(-8px);background:rgba(255,255,255,.09)}
+.ba{position:relative;aspect-ratio:442/382;overflow:hidden;--p:50%;cursor:ew-resize}
+.ba .img{position:absolute;inset:0;background:url('antes-depois.jpg') no-repeat;background-size:200% 100%}
+.ba .depois{background-position:right center}
+.ba .antes{background-position:left center;clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .ln{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;pointer-events:none}
+.ba .ln:after{content:'⇆';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.ba .t{position:absolute;bottom:12px;font-size:.62rem;letter-spacing:2px;padding:5px 12px;border-radius:30px;background:rgba(11,26,46,.65);pointer-events:none}
+.ba .t1{left:12px}.ba .t2{right:12px}
+.dep .b{padding:22px}
+.dep .st{color:var(--cream);letter-spacing:5px;font-size:.8rem;margin-bottom:12px}
+.dep blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.08rem;line-height:1.45;margin-bottom:18px}
+.dep b{font-weight:500}.dep small{color:var(--mut);margin-left:8px}
+
+/* DOUTOR */
+.dr{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
+.dr .ph{overflow:hidden}
+.dr .ph img{transform:scale(1.15);will-change:transform}
+.dr .tx{padding:50px 44px;display:flex;flex-direction:column;justify-content:center}
+.dr p{color:var(--mut);line-height:1.9;margin-top:20px}
+
+/* CLÍNICA */
+.cli{padding:50px 0 20px}
+.cli .top{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px;padding:0 40px}
+.cli blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;line-height:1.2;color:var(--cream);max-width:280px}
+.gal{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px 40px 24px;scrollbar-width:thin;scrollbar-color:var(--verde) transparent}
+.gal figure{flex:0 0 75%;height:440px;border-radius:22px;overflow:hidden;scroll-snap-align:center}
+.gal img{transition:1.2s}.gal figure:hover img{transform:scale(1.07)}
+
+/* BARRA FINAL */
+.bar{display:grid;grid-template-columns:repeat(3,1fr) 1.5fr;align-items:center;padding:22px 24px;gap:16px}
+.bar .n{display:flex;flex-direction:column;border-right:1px solid var(--line);padding:0 16px}
+.bar .n b{font-family:'Playfair Display',serif;font-weight:400;font-size:2.2rem;line-height:1.1}
+.bar .n span{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--mut)}
+.bar .cta{background:var(--ice);color:var(--navy);border-radius:18px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:.35s}
+.bar .cta:hover{transform:translateY(-4px)}
+.bar .cta h4{font-weight:600;margin-bottom:4px}.bar .cta p{font-size:.8rem;color:#4a5b72}
+.bar .cta span{flex:0 0 46px;height:46px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
+
+.wpp{position:fixed;right:18px;bottom:18px;z-index:95;width:60px;height:60px;border-radius:50%;background:var(--verde);display:grid;place-items:center;animation:pulse 2.2s infinite}
+.wpp svg{width:30px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}100%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
+
+@media(max-width:1080px){.trat{grid-template-columns:1fr}.slider{--per:2}}
+@media(max-width:980px){
+nav ul,.bubble{display:none}
+.hero .in{grid-template-columns:1fr;padding:120px 20px 110px;gap:30px;align-content:end}
+.hero .bg img{object-position:65% 35%;transform-origin:65% 40%}
+.hero .bg:after{background:linear-gradient(0deg,rgba(11,26,46,.95) 0%,rgba(11,26,46,.75) 40%,rgba(11,26,46,.1) 65%,transparent)}
+.media{height:auto}
+.stat-card{position:static;display:inline-flex}
+.lucia,.dr{grid-template-columns:1fr}
+.lucia .ph,.dr .ph{height:400px}
+.lucia .q,.dr .tx,.deps,.trat{padding:40px 24px}
+.cli .top{padding:0 24px}.gal{padding:30px 24px 20px}
+.dgrid{grid-template-columns:1fr}
+.bar{grid-template-columns:1fr}.bar .n{border:none;padding:0}
+.gal figure{height:320px;flex-basis:85%}
+}
+@media(max-width:640px){.slider{--per:1}.wrap{padding:0 12px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">BENVENUTTI<small>CLÍNICA ODONTOLÓGICA</small></a>
+  <ul><li><a href="#trat">Tratamentos</a></li><li><a href="#dep">Resultados</a></li><li><a href="#dr">Dr. Rafael</a></li><li><a href="#cli">A Clínica</a></li></ul>
+  <a class="pill" href="https://wa.me/5541999999999">Agendar <span>→</span></a>
+</nav>
+
+<section class="panel hero">
+  <div class="bg"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&crop=faces&w=2000&h=1200&q=90" alt="Modelo com sorriso largo mostrando dentes brancos e alinhados"></div>
+  <div class="sun"></div>
+  <div class="in">
+    <div class="c">
+      <div class="eyebrow rv">01 <i></i> Implantes · Estética · Saúde</div>
+      <h1 class="rv">Seu <span class="d">Dentista</span> Referência em <span class="d">Fazenda Rio Grande</span></h1>
+      <p class="rv">Implantes, próteses, <strong>lentes de contato dental</strong>, clareamento e mais.</p>
+      <small class="rv">DR. RAFAEL BENVENUTTI | CRO/PR 15015</small>
+      <div class="acts rv">
+        <a class="pill" href="https://wa.me/5541999999999">Agende Sua Avaliação <span>→</span></a>
+        <a class="link" href="#cli">Conheça a clínica</a>
+      </div>
+    </div>
+    <div class="media rv">
+      <div class="bubble">Atendimento humanizado e personalizado.</div>
+      <div class="stat-card">
+        <div class="ic"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=200&q=70" alt=""></div>
+        <div><b class="count" data-n="3000">+0</b><span>Pacientes Atendidos</span></div>
+      </div>
+    </div>
+  </div>
+  <a class="scroll" href="#historia" aria-label="Rolar para baixo"><span class="mouse"></span>Role para baixo</a>
+</section>
+
+<div class="wrap">
+
+<section class="panel lucia rv" id="historia">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&crop=faces&w=1200&h=1000&q=85" alt="Paciente com sorriso aberto sob luz dourada"></div>
+  <div class="q">
+    <div class="eyebrow">02 <i></i> <b>História real</b></div>
+    <h3>"Fazia anos que eu escondia meu sorriso. Hoje não paro de sorrir."</h3>
+    <p>"Perdi vários dentes ao longo dos anos e tinha vergonha de sorrir, de comer em público. Com o tratamento do Dr. Rafael, voltei a ter confiança. Minha família não acreditou quando me viu sorrindo de novo."</p>
+    <cite>Dona Lúcia, 61 anos</cite>
+  </div>
+</section>
+
+<section class="panel trat rv" id="trat">
+  <div class="intro">
+    <div class="eyebrow">03 <i></i> <b>Tratamentos</b></div>
+    <h2 class="h">Nossos <em>Tratamentos</em></h2>
+    <p>Do implante ao clareamento, cuidado completo para a saúde e a beleza do seu sorriso.</p>
+    <div><a class="pill" href="https://wa.me/5541999999999">Fale Com o Dr. Rafael <span>→</span></a></div>
+  </div>
+  <div class="slider" id="slider">
+    <div class="s-top">
+      <div class="dots" id="dots"></div>
+      <div class="arrows"><button id="prev" aria-label="Anterior">←</button><button id="next" aria-label="Próximo">→</button></div>
+    </div>
+    <div class="viewport">
+      <div class="track" id="track">
+        <div class="card"><div class="im"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=75" alt=""><em>01</em></div><div class="b"><h3>Implantes Dentários</h3><p>Dentes fixos que devolvem sua confiança. Implante unitário, múltiplo e reabilitação completa.</p><a href="https://wa.me/5541999999999">Saiba mais <span>→</span></a></div></div>
+        <div class="card"><div class="im"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=75" alt=""><em>02</em></div><div class="b"><h3>Lentes de Contato Dental</h3><p>Sorriso alinhado, branco e harmonioso. Transformação estética com resultado natural e duradouro.</p><a href="https://wa.me/5541999999999">Saiba mais <span>→</span></a></div></div>
+        <div class="card"><div class="im"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=75" alt=""><em>03</em></div><div class="b"><h3>Clareamento</h3><p>Dentes mais brancos com segurança e acompanhamento profissional. Resultado visível desde as primeiras sessões.</p><a href="https://wa.me/5541999999999">Saiba mais <span>→</span></a></div></div>
+        <div class="card"><div class="im"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=700&q=75" alt=""><em>04</em></div><div class="b"><h3>Aparelhos Dentários</h3><p>Ortodontia para crianças, adolescentes e adultos. Alinhe seus dentes e melhore sua mordida.</p><a href="https://wa.me/5541999999999">Saiba mais <span>→</span></a></div></div>
+        <div class="card"><div class="im"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=700&q=75" alt=""><em>05</em></div><div class="b"><h3>Tratamento de Canal</h3><p>Endodontia moderna e indolor. Salve seu dente natural com tecnologia e conforto durante o procedimento.</p><a href="https://wa.me/5541999999999">Saiba mais <span>→</span></a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel deps" id="dep">
+  <div class="head rv">
+    <div><div class="eyebrow">04 <i></i> <b>Resultados</b></div><h2 class="h">Quem Fez, <em>Recomenda</em></h2></div>
+    <p style="color:var(--mut);max-width:300px">Arraste a linha para comparar o antes e o depois.</p>
+  </div>
+  <div class="dgrid">
+    <div class="dep rv">
+      <div class="ba"><div class="img depois"></div><div class="img antes"></div><div class="ln"></div><span class="t t1">ANTES</span><span class="t t2">DEPOIS</span><input type="range" value="50" aria-label="Comparar antes e depois"></div>
+      <div class="b"><div class="st">★★★★★</div><blockquote>"Perdi alguns dentes da frente e fiquei muito tempo sem coragem de sorrir. Me fechei completamente. Quando vi o resultado do implante, chorei ali na cadeira mesmo."</blockquote><b>Fernanda</b><small>36 anos</small></div>
+    </div>
+    <div class="dep rv">
+      <div class="ba"><div class="img depois"></div><div class="img antes"></div><div class="ln"></div><span class="t t1">ANTES</span><span class="t t2">DEPOIS</span><input type="range" value="50" aria-label="Comparar antes e depois"></div>
+      <div class="b"><div class="st">★★★★★</div><blockquote>"Usei dentadura por muitos anos e já não aguentava mais. Depois que fiz o protocolo, voltei a comer de tudo. Minha família diz que estou mais bonita e mais feliz."</blockquote><b>Dona Neide</b><small>57 anos</small></div>
+    </div>
+    <div class="dep rv">
+      <div class="ba"><div class="img depois"></div><div class="img antes"></div><div class="ln"></div><span class="t t1">ANTES</span><span class="t t2">DEPOIS</span><input type="range" value="50" aria-label="Comparar antes e depois"></div>
+      <div class="b"><div class="st">★★★★★</div><blockquote>"Trabalho no comércio e vivia constrangido com meus dentes. Não sorria em reuniões, evitava fotos. Depois do implante com o Dr. Rafael, a primeira coisa que fiz foi tirar uma foto sorrindo."</blockquote><b>Seu Carlos</b><small>58 anos</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel dr rv" id="dr">
+  <div class="ph"><img id="plx" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80" alt="Dr. Rafael Benvenutti"></div>
+  <div class="tx">
+    <div class="eyebrow">05 <i></i> <b>Quem cuida de você</b></div>
+    <h2 class="h">Dr. Rafael <em>Benvenutti</em></h2>
+    <p>Cirurgião-dentista referência em Fazenda Rio Grande, o Dr. Rafael Benvenutti oferece tratamentos completos com foco em resultado e conforto para cada paciente.</p>
+    <p>Sua abordagem é humanizada e personalizada: do primeiro atendimento ao acompanhamento pós-tratamento, você recebe atenção dedicada e segurança em cada etapa.</p>
+    <div style="margin-top:28px"><a class="pill" href="https://wa.me/5541999999999">Agende Sua Avaliação <span>→</span></a></div>
+  </div>
+</section>
+
+<section class="panel cli" id="cli">
+  <div class="top rv">
+    <div><div class="eyebrow">06 <i></i> <b>A clínica</b></div><h2 class="h">Conheça a <em>Clínica Benvenutti</em></h2></div>
+    <blockquote>"Cuidado, conforto e confiança."</blockquote>
+  </div>
+  <div class="gal">
+    <figure><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt=""></figure>
+    <figure><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80" alt=""></figure>
+    <figure><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80" alt=""></figure>
+  </div>
+</section>
+
+<section class="panel bar rv">
+  <div class="n"><b class="count" data-n="3000">+0</b><span>Pacientes atendidos</span></div>
+  <div class="n"><b>5★</b><span>Avaliação dos pacientes</span></div>
+  <div class="n"><b>CRO</b><span>PR 15015</span></div>
+  <a class="cta" href="https://wa.me/5541999999999"><div><h4>Agende sua avaliação</h4><p>Seu novo sorriso começa com uma conversa.</p></div><span>→</span></a>
+</section>
+
+<footer>© 2026 Clínica Benvenutti · Fazenda Rio Grande/PR</footer>
+</div>
+
+<a class="wpp" href="https://wa.me/5541999999999" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.08+'s';io.observe(el)});
+
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,n=+el.dataset.n,t0=performance.now();
+(function f(t){const p=Math.min((t-t0)/2000,1);el.textContent='+'+Math.floor(n*(1-Math.pow(1-p,3))).toLocaleString('pt-BR');if(p<1)requestAnimationFrame(f)})(t0);co.unobserve(el)}));
+document.querySelectorAll('.count').forEach(c=>co.observe(c));
+
+(()=>{
+const sl=document.getElementById('slider'),tr=document.getElementById('track'),cards=[...tr.children],
+prev=document.getElementById('prev'),next=document.getElementById('next'),dots=document.getElementById('dots');
+let i=0,timer;
+const per=()=>+getComputedStyle(sl).getPropertyValue('--per'),max=()=>Math.max(0,cards.length-per());
+function build(){dots.innerHTML='';for(let k=0;k<=max();k++){const b=document.createElement('button');b.onclick=()=>go(k);dots.appendChild(b)}}
+function go(n){i=Math.min(Math.max(n,0),max());const w=cards[0].offsetWidth+16;tr.style.transform=`translateX(${-i*w}px)`;
+prev.disabled=i===0;next.disabled=i===max();[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i))}
+prev.onclick=()=>go(i-1);next.onclick=()=>go(i+1);
+const auto=()=>{clearInterval(timer);timer=setInterval(()=>go(i>=max()?0:i+1),5000)};
+sl.addEventListener('mouseenter',()=>clearInterval(timer));sl.addEventListener('mouseleave',auto);
+let x0=null;tr.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+tr.addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',()=>{build();go(i)});
+build();go(0);auto();
+})();
+
+document.querySelectorAll('.ba input').forEach(i=>i.addEventListener('input',()=>i.parentNode.style.setProperty('--p',i.value+'%')));
+
+const px=document.getElementById('plx');
+addEventListener('scroll',()=>{const r=px.parentNode.getBoundingClientRect();px.style.transform=`scale(1.15) translateY(${r.top*-.08}px)`},{passive:true});
+</script>
+</body>
+</html>
